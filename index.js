@@ -1,3 +1,4 @@
+const PORT = process.env.PORT || 3000;
 var cors = require("cors");
 var XLSX = require("xlsx");
 const fs = require("fs");
@@ -16,4 +17,4 @@ app.get("/employees", function (req, res) {
   res.send(data);
 });
 
-app.listen(3000);
+app.listen(PORT);
