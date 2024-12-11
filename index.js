@@ -17,4 +17,14 @@ app.get("/employees", function (req, res) {
   res.send(data);
 });
 
+app.get("/grades", (req, res) => {
+  const fileBuffer = fs.readFileSync("./info/data.xlsx");
+  const workbook = XLSX.read(fileBuffer, { type: "buffer" });
+
+  const sheetName = "grades";
+  const sheet = workbook.Sheets[sheetName];
+  const data = XLSX.utils.sheet_to_json(sheet);
+  res.send(data);
+});
+
 app.listen(PORT);
