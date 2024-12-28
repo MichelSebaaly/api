@@ -27,4 +27,15 @@ app.get("/grades", (req, res) => {
   res.send(data);
 });
 
+app.get("/comments", (req, res) => {
+  let data = [
+    {
+      name: "Michel",
+      job: "Developer",
+      comment: "It was good working with you",
+    },
+  ];
+  res.send(data);
+});
+
 app.listen(PORT);
